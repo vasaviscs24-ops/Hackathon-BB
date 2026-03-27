@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activities | BMSCE</title>
+    <meta name="description" content="Discover student activities, Phase Shift, and Utsav at BMS College of Engineering.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admission-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            height: 100%;
+        }
+
+        .phase-shift-card {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 255, 255, 0.02)); 
+            border: 1px solid rgba(0, 242, 254, 0.2); 
+            border-radius: 20px; 
+            padding: 30px 20px; 
+            text-align: center; 
+            width: 260px; 
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .phase-shift-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 242, 254, 0.6);
+        }
+        .phase-shift-card img {
+            width: 120px; 
+            height: 120px; 
+            object-fit: contain;
+            margin-bottom: 20px; 
+            filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.5));
+            transition: transform 0.3s ease;
+        }
+        .phase-shift-card:hover img {
+            transform: scale(1.1);
+        }
+        .phase-shift-btn {
+            display: inline-block; 
+            padding: 12px 25px; 
+            background: rgba(0, 242, 254, 0.1); 
+            border: 1px solid var(--primary-cyan); 
+            border-radius: 30px; 
+            color: var(--primary-cyan); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .phase-shift-card:hover .phase-shift-btn {
+            background: var(--primary-cyan);
+            color: #111;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="dropbtn">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="research-about.html" class="dropbtn">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="activities.html" class="active dropbtn">Activities</a>
+                <div class="dropdown-content">
+                    <a href="phaseshift.html">Phase Shift</a>
+                    <a href="utsav.html">Utsav</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HEADER / HERO -->
+    <section class="about-header">
+        <div class="about-header-content">
+            <h1 class="text-gradient">Student Activities & Events</h1>
+            <p>Fostering Innovation, Culture, and Leadership at BMSCE</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section" style="padding-top: 50px; max-width: 1300px; margin: 0 auto; padding-bottom: 100px;">
+        
+        <!-- Activities Section -->
+        <section id="activities" class="admission-section reveal-on-scroll" style="width: 100%; text-align: center;">
+            <h2 class="text-gradient" style="margin-bottom: 40px; font-size: 2.2rem;">Student Life & Technical Symposiums</h2>
+            <p style="font-size: 1.2rem; opacity: 0.8; max-width: 800px; margin: 0 auto 40px;">
+                B.M.S. College of Engineering provides a vibrant platform for students to explore their potential through various technical and cultural events. Our activities are designed to bridge the gap between academia and industry.
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px;">
+                <!-- Phase Shift Entry -->
+                <div class="admission-section" style="max-width: 400px; padding: 30px; text-align: left; height: auto;">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 20px;">Phase Shift</h3>
+                    <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 25px;">Our flagship Annual International Technical Symposium. A two-day tech extravaganza featuring hackathons, workshops, and project displays.</p>
+                    <a href="phaseshift.html" class="btn btn-glow" style="padding: 12px 25px; border-radius: 30px;">Enter Phase Shift Portal</a>
+                </div>
+                
+                <!-- Utsav Entry -->
+                <div class="admission-section" style="max-width: 400px; padding: 30px; text-align: left; height: auto; border-color: rgba(255, 215, 0, 0.3);">
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">UTSAV</h3>
+                    <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 25px;">The legendary Annual Techno-Cultural Fest of BMSCE. Standing tall since 1981, it is a grand celebration of heritage, talent, and creativity.</p>
+                    <a href="utsav.html" class="btn btn-glow" style="padding: 12px 25px; border-radius: 30px; border-color: #FFD700; color: #FFD700;">Enter UTSAV Portal</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+        </section>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
