@@ -4,7 +4,7 @@
 
 
 ## Project Overview
-**BMSCE Connect** is a high-performance, responsive web application engineered to modernize the digital presence of B.M.S. College of Engineering. Developed as a competitive entry for BrowserBattle, this project addresses the common challenges of institutional websites—specifically information density, mobile accessibility, and user retention.
+**BMSCE Connect** is a high-performance, responsive web application engineered to modernize the digital presence of B.M.S. College of Engineering. Developed as a competitive entry for Browser Battle, this project addresses the common challenges of institutional websites—specifically information density, mobile accessibility, and user retention.
 
 ---
 
