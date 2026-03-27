@@ -10,6 +10,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Trigger Curtain and Sequential Entrance on Page Load
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
 /* =========================================
    HERO SLIDER (AUTO CHANGE EVERY 10S)
 ========================================= */
@@ -80,6 +85,13 @@ document.addEventListener('mousemove', (e) => {
         bg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
     }
 
+    const researchBg = document.querySelector('.research-brand-bg');
+    if (researchBg) {
+        const x = (window.innerWidth - e.pageX * 2) / 60;
+        const y = (window.innerHeight - e.pageY * 2) / 60;
+        researchBg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    }
+
     // Parallax background orbs
     const orbX = (window.innerWidth - e.pageX * 2) / 100;
     const orbY = (window.innerHeight - e.pageY * 2) / 100;
@@ -89,7 +101,7 @@ document.addEventListener('mousemove', (e) => {
 
 // 2. Interactive 3D Glare & Tilt Effect for Glass Cards
 document.addEventListener('DOMContentLoaded', () => {
-    const tiltElements = document.querySelectorAll('.about-block, .preview-content');
+    const tiltElements = document.querySelectorAll('.about-block, .preview-content, .visionary-card, .partner-card, .club-item');
     
     tiltElements.forEach(el => {
         // Initial setup for smooth 3D transform
