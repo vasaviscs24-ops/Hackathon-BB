@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTSAV | BMSCE Annual Techno-Cultural Fest</title>
+    <meta name="description" content="UTSAV - The Annual Techno-Cultural Fest of BMS College of Engineering. Standing tall since 1981.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-gold: #FFD700;
+            --royal-crimson: #9e1b32;
+            --utsav-accent: #ff3e6c;
+        }
+
+        .utsav-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            height: 100%;
+        }
+
+        .utsav-hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('utsav_regalia_hero_banner_1774597577243_1774599954421.png') no-repeat center center;
+            background-size: cover;
+            margin-top: 80px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .utsav-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(0deg, rgba(3, 10, 20, 1) 0%, rgba(3, 10, 20, 0.4) 100%);
+        }
+
+        .utsav-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .utsav-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            border-radius: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+        }
+
+        .utsav-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 255, 255, 0.02)); 
+            border: 1px solid rgba(255, 215, 0, 0.2); 
+            border-radius: 20px; 
+            padding: 30px; 
+            text-align: center; 
+            transition: all 0.4s ease;
+        }
+        .utsav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: var(--primary-gold);
+        }
+
+        .utsav-btn {
+            display: inline-block; 
+            padding: 12px 25px; 
+            background: rgba(255, 215, 0, 0.1); 
+            border: 1px solid var(--primary-gold); 
+            border-radius: 30px; 
+            color: var(--primary-gold); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .utsav-btn:hover {
+            background: var(--primary-gold);
+            color: #111;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Entrance Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal-on-load {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Classy Bullet Points */
+        .classy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .classy-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .classy-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 2px;
+            background: var(--primary-gold);
+            box-shadow: 0 0 10px var(--primary-gold);
+        }
+        .classy-list li:hover { transform: translateX(5px); }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .stat-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .stat-num {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.02);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .committee-table th, .committee-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .committee-table th {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .collab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .collab-item {
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.8;
+            transition: background 0.3s;
+        }
+        .collab-item:hover { background: rgba(255, 215, 0, 0.05); opacity: 1; border-color: rgba(255, 215, 0, 0.3); }
+
+        .youtube-card {
+            width: 320px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .youtube-card:hover { transform: translateY(-5px); border-color: #ff0000; box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1); }
+        .yt-thumb { height: 180px; background: #222; display: flex; align-items: center; justify-content: center; position: relative; }
+        .yt-play-btn { width: 60px; height: 40px; background: #ff0000; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .yt-content { padding: 20px; text-align: left; }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 85vh;
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+        }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .close-modal {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-modal:hover { color: #fff; }
+        .modal-tabs {
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+        .modal-tab {
+            padding: 10px 20px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .modal-tab.active {
+            color: var(--primary-gold);
+            border-bottom-color: var(--primary-gold);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .sponsor-item {
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="about-brand-bg"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+        <div class="logo-container">
+            <img src="logo-transparent.png" alt="BMSCE Logo" class="logo-img">
+            <div class="logo-text">BMSCE</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="dropbtn">About</a>
+                <div class="dropdown-content">
+                    <a href="governing-bodies.html">Governing Bodies</a>
+                    <a href="administration.html">Administration</a>
+                    <a href="e-governance.html">E-Governance</a>
+                    <a href="partner-institutions.html">Group of Institutions</a>
+                    <a href="life-at-bmsce.html">Life at BMSCE</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="research-about.html" class="dropbtn">Research</a>
+                <div class="dropdown-content">
+                    <a href="research-about.html">About R&D</a>
+                    <a href="research-labs.html">Innovative Labs</a>
+                    <a href="research-nano.html">Nanomaterials Centre</a>
+                    <a href="research-patents.html">Patents Filed</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="activities.html" class="dropbtn">Activities</a>
+                <div class="dropdown-content">
+                    <a href="phaseshift.html">Phase Shift</a>
+                    <a href="utsav.html" class="active">Utsav</a>
+                </div>
+            </li>
+            <li><a href="admissions.html">Admissions</a></li>
+        </ul>
+    </header>
+
+    <!-- HERO -->
+    <section class="utsav-hero" style="background: linear-gradient(135deg, #030a14 0%, #0a192f 100%); height: 40vh; min-height: 300px;">
+        <div class="utsav-hero-content">
+            <h1 class="text-gradient" style="font-size: 5rem; margin-bottom: 10px; letter-spacing: 5px;">UTSAV</h1>
+            <p style="font-size: 1.2rem; opacity: 0.8; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-gold);">BMSCE Annual Techno-Cultural Fest</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="about-content-section reveal-on-load" style="padding-top: 50px; max-width: 1300px; margin: 0 auto; padding-bottom: 100px;">
+        
+        <div id="utsav-details" class="utsav-section" style="width: 100%; background: none; border: none; backdrop-filter: none;">
+            
+            <!-- About Utsav Legacy -->
+            <div style="margin-bottom: 80px; background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);">
+                <h2 style="color: var(--primary-gold); margin-bottom: 30px; font-size: 2.5rem; text-align: center;">The Legacy</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                    <div>
+                        <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                            <strong>UTSAV</strong> is the Annual Techno-Cultural fest hosted by B.M.S. College of Engineering in Bengaluru. Standing tall since 1981, it is the pride of BMSCE and one of the largest fests in South India. Over the years, UTSAV has established itself as a brand, providing an invaluable platform to explore one's talents and artistic endeavors.
+                        </p>
+                        <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem;">
+                            Passionate students are given ample opportunities to express themselves and compete with one another, with creativity, courage, and persistence being rewarded generously. The festival has set new benchmarks with its events, making it an unforgettable experience.
+                        </p>
+                    </div>
+                    <div class="utsav-card" style="background: rgba(255, 215, 0, 0.05); border: 2px solid var(--primary-gold);">
+                        <h3 style="color: var(--primary-gold); margin-bottom: 15px;">Celebrating Heritage</h3>
+                        <p style="font-size: 1.1rem; opacity: 0.8;">Admired for its dedication to the rhythms of cosmopolitan Bengaluru. A flourishing hub of cultural excellence since 1981.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UTSAV-REGALIA 2023 -->
+            <div style="margin-bottom: 80px; background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);">
+                <span class="utsav-badge" style="margin-bottom: 15px;">Edition 2023</span>
+                <h2 style="color: var(--utsav-accent); margin-bottom: 30px; font-size: 2.8rem;">UTSAV-REGALIA 2023</h2>
+                
+                <div style="margin-bottom: 40px;">
+                    <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        Fondly known as the <strong>Festival of Faith</strong>, Utsav 2023 spotlit the indomitable human spirit. The theme was <strong>‘Regalia’</strong> – emulating royalty; not just an emotion, but a way of life that makes one feel a sense of belonging in an exalted state of being.
+                    </p>
+                    <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        Surpassing all expectations, it featured over 70 events spanning dance, music, theater, art, and gaming, supported by over 60 sponsors and collaborators.
+                    </p>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-item"><span class="stat-num">70+</span><span class="stat-label">Events</span></div>
+                        <div class="stat-item"><span class="stat-num">60+</span><span class="stat-label">Collaborators</span></div>
+                        <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Royal Days</span></div>
+                        <div class="stat-item" style="border-color: #2ecc71;"><span class="stat-num" style="color: #2ecc71;">Zero</span><span class="stat-label">Waste Fest</span></div>
+                    </div>
+                </div>
+
+                <!-- Green Fest Sub-section -->
+                <div style="margin-bottom: 40px; padding: 30px; background: rgba(46, 204, 113, 0.05); border-radius: 20px; border: 1px solid rgba(46, 204, 113, 0.2);">
+                    <h3 style="color: #2ecc71; margin-bottom: 20px;">Green Fest Initiative</h3>
+                    <p style="opacity: 0.85; margin-bottom: 20px;">A zero-waste festival initiative using steel cutlery, awareness campaigns, and strategic waste segregation.</p>
+                    <ul class="classy-list">
+                        <li>Usage of steel cutlery (plates, spoons, glasses) for all meals.</li>
+                        <li>Strategic waste bins for bagasse, wood, and dry/wet waste.</li>
+                        <li>Educational awareness before DJ night and Turtle Jam.</li>
+                    </ul>
+                </div>
+
+                <!-- Highlights Grid -->
+                <h3 style="color: var(--primary-gold); margin-bottom: 30px; font-size: 1.8rem;">2023 Highlights</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px;">
+                    <div class="utsav-card">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">Inauguration</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.75;">Chief Guest Vasishta Simha, Nihal Tauro, and Tanisha Kuppanda graced the stage.</p>
+                    </div>
+                    <div class="utsav-card">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">DJ Night</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.75;">Electrifying beats by DJ Sush, DJ Gandhi, and Blast Supernova.</p>
+                    </div>
+                    <div class="utsav-card">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 10px;">Whiplash</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.75;">Concert featuring JukeRadio and Anjana Padmanabhan.</p>
+                    </div>
+                </div>
+
+                <!-- 2023 Media -->
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="https://youtu.be/0rgYwj-hxr8" target="_blank" class="utsav-btn">Theme Song</a>
+                    <a href="https://youtu.be/B22VY_0MEqg" target="_blank" class="utsav-btn">After Movie</a>
+                    <a href="https://youtu.be/TUZeeqTYKlI" target="_blank" class="utsav-btn">Flashmob</a>
+                </div>
+            </div>
+
+            <!-- UTSAV-ENVISAGE 2022 -->
+            <div style="margin-bottom: 80px; background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);">
+                <span class="utsav-badge" style="margin-bottom: 15px; border-color: #3498db; color: #3498db; background: rgba(52, 152, 219, 0.1);">Edition 2022</span>
+                <h2 style="color: #3498db; margin-bottom: 30px; font-size: 2.8rem;">UTSAV-ENVISAGE 2022</h2>
+                
+                <div style="margin-bottom: 40px;">
+                    <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        This year witnessed the amalgamation of UTSAV with <strong>ENVISAGE</strong>, the Annual Cultural Fest of B.M.S. College of Architecture. It was a fest of massive magnitude that pulled in crowds from across the nation.
+                    </p>
+                    <p style="opacity: 0.85; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem;">
+                        UTSAV-ENVISAGE created a congenial atmosphere for the youth to channel their spirits and innovation, providing a platform for talented students in theater, dance, music, and debate to express themselves in the most innovative ways ever conceived.
+                    </p>
+                </div>
+
+                <!-- 2022 Media -->
+                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="https://youtu.be/-bg7WqzuTSE" target="_blank" class="utsav-btn" style="border-color: #3498db; color: #3498db;">Theme Song</a>
+                    <a href="https://youtu.be/gZXxPUccDbA" target="_blank" class="utsav-btn" style="border-color: #3498db; color: #3498db;">Envisage Movie</a>
+                </div>
+            </div>
+
+            <!-- Committees / Sponsors remain visible but concise -->
+             <div style="margin-bottom: 80px; text-align: center;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 30px;">Collaborators & Governance</h3>
+                <div style="display: flex; justify-content: center; gap: 40px;">
+                     <button onclick="openUtsavModal('sponsors')" class="utsav-btn" style="font-size: 0.9rem;">Sponsors List</button>
+                     <button onclick="openUtsavModal('committees')" class="utsav-btn" style="font-size: 0.9rem;">Committees</button>
+                </div>
+             </div>
+
+            <!-- Final Documents Section -->
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 50px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+                <h2 style="color: #fff; margin-bottom: 40px; font-size: 2.2rem;">Official Reports</h2>
+                <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <div class="utsav-card" style="width: 350px;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 20px;">UTSAV 2023</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px;">Download the comprehensive report of the Regalia edition.</p>
+                        <a href="https://bmsce.ac.in/assets/files/U23-compressed.pdf" target="_blank" class="utsav-btn" style="width: 100%;">REPORT PDF</a>
+                    </div>
+                    <div class="utsav-card" style="width: 350px;">
+                        <h4 style="color: #3498db; margin-bottom: 20px;">UTSAV-ENVISAGE 2022</h4>
+                        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px;">Review the archives of the 2022 combined festival.</p>
+                        <a href="https://bmsce.ac.in/assets/files/Utsav-Envisage%20Report.pdf" target="_blank" class="utsav-btn" style="width: 100%; border-color: #3498db; color: #3498db;">REPORT PDF</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 B.M.S. College of Engineering (BMSCE) Bengaluru. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function openUtsavModal(tabName) {
+            const modal = document.getElementById('utsav-modal');
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            switchTab(tabName);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('utsav-modal');
+            modal.classList.remove('active');
+            setTimeout(() => modal.style.display = 'none', 400);
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.modal-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`${tabName}-content`).classList.add('active');
+        }
+
+        // Close on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('utsav-modal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+
+    <!-- UTSAV MODAL -->
+    <div id="utsav-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-tabs">
+                <div class="modal-tab active" onclick="switchTab('committees')">Committees</div>
+                <div class="modal-tab" onclick="switchTab('sponsors')">Sponsors</div>
+            </div>
+
+            <!-- Committees Tab -->
+            <div id="committees-content" class="tab-content active">
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">Faculty Core Committee</h3>
+                <table class="committee-table" style="margin-bottom: 40px;">
+                    <thead><tr><th>Sl No</th><th>Name</th><th>Designation</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>DR. RATHANRAJ K J</td><td>WORKING CHAIRMAN</td></tr>
+                        <tr><td>2</td><td>DR. NIRANJAN K R</td><td>ORGANISING SECRETARY</td></tr>
+                        <tr><td>3</td><td>DR. SMITHA V SHENOY</td><td>JOINT SECRETARY</td></tr>
+                        <tr><td>4</td><td>DR. UMAVATHI M</td><td>TREASURER</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 style="color: var(--primary-gold); margin-bottom: 20px;">Student Core Committee</h3>
+                <table class="committee-table">
+                    <thead><tr><th>Sl No</th><th>Name</th><th>Designation</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>MOHIT RAJ BHURAT</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                        <tr><td>2</td><td>NISCHALA SATISH BABU</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                        <tr><td>3</td><td>RAKSHA K MOORTHY</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                        <tr><td>4</td><td>TANISHQ DESHPANDE</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                        <tr><td>5</td><td>D MANVITH REDDY</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                        <tr><td>6</td><td>ARUNDATI RAO</td><td>STUDENT CORE COMMITTEE MEMBER</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Sponsors Tab -->
+            <div id="sponsors-content" class="tab-content">
+                <h3 style="color: var(--primary-gold); margin-bottom: 25px;">Our Valued Collaborators</h3>
+                <div class="sponsor-grid">
+                    <div class="sponsor-item">1. Intact Green Services Pvt. Ltd.</div>
+                    <div class="sponsor-item">2. iVALUE Info Solutions Pvt. Ltd.</div>
+                    <div class="sponsor-item">3. Maven Consulting Services</div>
+                    <div class="sponsor-item">4. Localfermentco</div>
+                    <div class="sponsor-item">5. Amgil Labs Pvt. Ltd.</div>
+                    <div class="sponsor-item">6. Lemonday</div>
+                    <div class="sponsor-item">7. Nizaams</div>
+                    <div class="sponsor-item">8. Just Shawarma</div>
+                    <div class="sponsor-item">9. Hical Technologies Private Limited</div>
+                    <div class="sponsor-item">10. Medley Foodworks - 30 Square</div>
+                    <div class="sponsor-item">11. Stylish Delights</div>
+                    <div class="sponsor-item">12. Green Trends Unisex Hair & Style Salon</div>
+                    <div class="sponsor-item">13. Om Nandi Milks</div>
+                    <div class="sponsor-item">14. Decathlon</div>
+                    <div class="sponsor-item">15. Altruist Technologies Pvt Ltd</div>
+                    <div class="sponsor-item">16. 21st amendment</div>
+                    <div class="sponsor-item">17. Sucow Fresh</div>
+                    <div class="sponsor-item">18. Symbio Generics India Pvt Ltd</div>
+                    <div class="sponsor-item">19. Juice Junction</div>
+                    <div class="sponsor-item">20. SSN CONSULTANCY</div>
+                    <div class="sponsor-item">21. Symmetrix Computer Systems Pvt. Ltd</div>
+                    <div class="sponsor-item">22. Daadis</div>
+                    <div class="sponsor-item">23. K2GE Company</div>
+                    <div class="sponsor-item">24. Tynimo Life Style Pvt Ltd</div>
+                    <div class="sponsor-item">25. Entropy</div>
+                    <div class="sponsor-item">26. Jubeerich Consultancy Private Limited</div>
+                    <div class="sponsor-item">27. CONTINENTAL MONK</div>
+                    <div class="sponsor-item">28. Nestlings Inc - Study Overseas Consultants</div>
+                    <div class="sponsor-item">29. Om Videsh</div>
+                    <div class="sponsor-item">30. Reliance Digital</div>
+                    <div class="sponsor-item">31. Beyond Bhu Technologies (Astronuts)</div>
+                    <div class="sponsor-item">32. UNIABROAD Ltd</div>
+                    <div class="sponsor-item">33. Indian Bank - Hanumanthnagar</div>
+                    <div class="sponsor-item">34. Nutri Skin Science</div>
+                    <div class="sponsor-item">35. Eat Raja</div>
+                    <div class="sponsor-item">36. Vintage Ice Popsicles</div>
+                    <div class="sponsor-item">37. Genesis</div>
+                    <div class="sponsor-item">38. VpaperbyRoshini</div>
+                    <div class="sponsor-item">39. !ceream</div>
+                    <div class="sponsor-item">40. Itie Knowledge Solutions</div>
+                    <div class="sponsor-item">41. SPM Global Technologies</div>
+                    <div class="sponsor-item">42. Vijayalakshmi Fresh Fruit Juice</div>
+                    <div class="sponsor-item">43. IAS ACHIEVERS</div>
+                    <div class="sponsor-item">44. Talampally Pvt. Ltd.</div>
+                    <div class="sponsor-item">45. Indigo Music</div>
+                    <div class="sponsor-item">46. DURVAH IT CONSULTING</div>
+                    <div class="sponsor-item">47. Binary Systems Pvt Ltd</div>
+                    <div class="sponsor-item">48. Posterwa</div>
+                    <div class="sponsor-item">49. Lafiny Technologies</div>
+                    <div class="sponsor-item">50. Stylish Curves</div>
+                    <div class="sponsor-item">51. ITC</div>
+                    <div class="sponsor-item">52. The Fries Kingdom</div>
+                    <div class="sponsor-item">53. Tattoo Tatva</div>
+                    <div class="sponsor-item">54. Trail Blazers</div>
+                    <div class="sponsor-item">55. V Movie Makers</div>
+                    <div class="sponsor-item">56. Century</div>
+                    <div class="sponsor-item">57. Pantaloons</div>
+                    <div class="sponsor-item">58. Axis Bank</div>
+                    <div class="sponsor-item">59. Karnataka Bank</div>
+                    <div class="sponsor-item">60. New Mayadeep</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

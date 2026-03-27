@@ -47,3 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+
+/* =========================================
+   DYNAMIC NAVBAR ACTIVE STATE
+========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    let currentPath = window.location.pathname.split('/').pop();
+    if (currentPath === '') currentPath = 'index.html';
+    
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const linkHref = link.getAttribute('href');
+        
+        if (linkHref === currentPath) {
+            link.classList.add('active');
+            const parentDropdown = link.closest('.dropdown');
+            if (parentDropdown) {
+                const parentLink = parentDropdown.querySelector('a');
+                if (parentLink) parentLink.classList.add('active');
+            }
+        }
+    });
+});
